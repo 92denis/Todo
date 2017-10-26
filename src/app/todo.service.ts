@@ -19,4 +19,10 @@ export class TodoService {
     }
     return todos;
   }
+
+  addTodo(todo: Todo) {
+    let todos = this.getTodos()
+    todos.push(new Todo(todo.name, todo.date, todo.checked))
+    localStorage.setItem('todos', JSON.stringify(todos));
+  }
 }
