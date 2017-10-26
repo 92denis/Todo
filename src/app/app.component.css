@@ -1,6 +1,5 @@
-main {
-    width: 600px;
-    margin: auto;
+.container {
+    margin: 40 auto;
     padding: 2rem;
     display: flex;
     justify-content: flex-start;
