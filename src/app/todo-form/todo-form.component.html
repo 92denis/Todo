@@ -5,11 +5,9 @@
         <input matInput  name="name" [(ngModel)]="newTodo.name" placeholder="Input" #nameTodo="ngModel" placeholder="Введите название напоминания">
       </mat-form-field>
       <mat-form-field>
-        <input matInput [matDatepicker]="picker"  name="date" [(ngModel)]="newTodo.date"  #dateTodo="ngModel"  placeholder="Выберите дату">
-        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-        <mat-datepicker #picker></mat-datepicker>
+        <input matInput type="datetime-local" value="+03:00"  name="date" [(ngModel)]="newTodo.date"  #dateTodo="ngModel"  placeholder="Выберите дату и время">
       </mat-form-field>
-      <button mat-raised-button  type="submit" color="primary" >Добавить</button>
+        <button mat-raised-button  type="submit" color="primary" >Добавить</button>
     </form>
   </div>
   <div class="row">
