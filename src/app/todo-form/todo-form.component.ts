@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Todo } from '../todo';
+import { TodoService } from '../todo.service'
 
 @Component({
   selector: 'todo-form',
@@ -6,10 +8,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./todo-form.component.css']
 })
 export class TodoFormComponent implements OnInit {
+  todos: Todo[];
 
-  constructor() { }
+  constructor(private todoService: TodoService) { }
+
+  getTodos(): void {
+    this.todos = this.todoService.getTodos();
+
+  }
 
   ngOnInit() {
+    this.getTodos();
   }
 
 }
