@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Todo } from '../todo';
 import { TodoService } from '../todo.service'
+import { NgForm} from '@angular/forms';
 
 @Component({
   selector: 'todo-form',
@@ -10,11 +11,12 @@ import { TodoService } from '../todo.service'
 export class TodoFormComponent implements OnInit {
   todos: Todo[];
   newTodo: Todo;
+  nameSearch: string;
 
   constructor(private todoService: TodoService) {
     this.newTodo = new Todo(null, null, false);
+    this.nameSearch = '';
   }
-
   getTodos(): void {
     this.todos = this.todoService.getTodos();
 

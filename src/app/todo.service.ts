@@ -7,7 +7,7 @@ export class TodoService {
   constructor() { }
 
   private todos: Todo[] = [{
-    name: "Hello world",
+    name: "Hello",
     checked: false,
     date: new Date()
   }];
