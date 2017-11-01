@@ -2,3 +2,7 @@
     flex: 1;
     margin-top: 1rem;
 }
+.mat-form-field{
+    width: 90%;
+    margin: 5px;
+  }

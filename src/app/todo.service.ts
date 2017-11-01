@@ -10,7 +10,7 @@ export class TodoService {
     name: "Hello",
     checked: false,
     date: new Date(),
-    tags: ['важное']
+    tags: ['Важное']
   }];
 
   getTodos(): Todo[] {

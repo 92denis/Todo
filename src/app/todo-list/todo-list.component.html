@@ -3,6 +3,19 @@
 
     <mat-card-title> Название напоминания: {{todo.name}}</mat-card-title>
     <mat-card-subtitle> Дата: {{todo.date}}</mat-card-subtitle>
+     
   </mat-card-header>
 
+  <mat-form-field floatPlaceholder="never">
+      <mat-chip-list mdPrefix >
+        <mat-chip *ngFor="let tag of tags; let i = index" color="accent">
+          {{tag}}
+          <!-- <i class="fa fa-close" ></i> -->
+          <mat-icon  (click)="remove(i)">cancel</mat-icon>
+        </mat-chip>
+      </mat-chip-list>
+      <input matInput  placeholder="Enter tag"
+       [(ngModel)]="tagValue" #tag (keydown.enter)="add(tag.value)"
+        (keydown.backspace)="removeByKey(tag.value)"/>
+    </mat-form-field>
 </mat-card>
