@@ -9,7 +9,8 @@ export class TodoService {
   private todos: Todo[] = [{
     name: "Hello",
     checked: false,
-    date: new Date()
+    date: new Date(),
+    tags: ['важное']
   }];
 
   getTodos(): Todo[] {
@@ -22,7 +23,7 @@ export class TodoService {
 
   addTodo(todo: Todo) {
     let todos = this.getTodos()
-    todos.push(new Todo(todo.name, todo.date, todo.checked))
+    todos.push(new Todo(todo.name, todo.date, todo.checked, todo.tags))
     localStorage.setItem('todos', JSON.stringify(todos));
   }
 }
