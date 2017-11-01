@@ -3,9 +3,8 @@
     padding: 2rem;
     display: flex;
     justify-content: flex-start;
-    align-items: center;
+    /* align-items: center; */
     flex-direction: column;
-}
-.row{
-    width: 70%;
+    flex: 1;
+    /* width: 90%; */
 }
