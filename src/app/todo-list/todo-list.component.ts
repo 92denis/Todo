@@ -12,37 +12,30 @@ const COMMA = 188;
 export class TodoListComponent implements OnInit {
 
   @Input() todo: Todo;
-   
-  todos: Todo[];
-  tags: any[];
-  tag: any[];
 
-    constructor(private todoService: TodoService) {}
+  constructor(private todoService: TodoService) { }
   tagValue: string;
-  
-  remove(item){
-    this.tags.splice(item, 1);
+
+  remove(item) {
+    this.todo.tags.splice(item, 1);
   }
-  
-  add(value){
+
+  add(value) {
     // console.log(value);
-    this.tags.push(value);
+    this.todo.tags.push(value);
     this.tagValue = "";
   }
-  
-  removeByKey(value){
+
+  removeByKey(value) {
     // console.log(event)
-    if(value.length < 1){
-      if(this.tags.length > 0){
-        this.tags.pop();
+    if (value.length < 1) {
+      if (this.todo.tags.length > 0) {
+        this.todo.tags.pop();
       }
     }
   }
+  
   ngOnInit() {
-    this.todos  = this.todoService.getTodos();
-    console.log(this.todos);
-    this.tags = this.todos.map(todo =>todo.tags);
-        
   }
 
 }
