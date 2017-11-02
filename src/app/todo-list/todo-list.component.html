@@ -16,7 +16,7 @@
           <mat-icon (click)="remove(i)">cancel</mat-icon>
         </mat-chip>
       </mat-chip-list>
-      <input matInput placeholder="Enter tag" [(ngModel)]="tagValue" #tag (keydown.enter)="add(tag.value)" (keydown.backspace)="removeByKey(chip.value)"
+      <input matInput placeholder="Enter tag" [(ngModel)]="tagValue" #tag (keydown.enter)="add(tag.value)" (keydown.backspace)="removeByKey(tag.value)"
       />
     </mat-input-container>
   </div>
