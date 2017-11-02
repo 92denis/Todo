@@ -15,7 +15,7 @@ export class TodoFormComponent implements OnInit {
   minDate: any;
 
   constructor(private todoService: TodoService) {
-    this.newTodo = new Todo(null, null, false, []);
+    this.newTodo = new Todo(null, null, null, false, []);
     this.nameSearch = '';
     this.minDate = new Date().getFullYear() + '-' + (new Date().getMonth() + 1) + '-' + new Date().getDate() + 'T' + new Date().getHours() + ':' + new Date().getMinutes();
 
@@ -26,6 +26,7 @@ export class TodoFormComponent implements OnInit {
   }
 
   addItem() {
+    this.newTodo.id = this.todos.length != 0 ? this.todos[this.todos.length - 1].id + 1 : 1;
     this.todoService.addTodo(this.newTodo);
     this.getTodos();
   }

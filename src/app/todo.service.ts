@@ -7,6 +7,7 @@ export class TodoService {
   constructor() { }
 
   private todos: Todo[] = [{
+    id:1,
     name: "Hello",
     checked: false,
     date: new Date(),
@@ -23,13 +24,13 @@ export class TodoService {
 
   addTodo(todo: Todo) {
     let todos = this.getTodos()
-    todos.push(new Todo(todo.name, todo.date, todo.checked, todo.tags))
+    todos.push(new Todo(todo.id,todo.name, todo.date, todo.checked, todo.tags))
     localStorage.setItem('todos', JSON.stringify(todos));
   }
 
   updateTodo(todo) {
     let todos = this.getTodos();
-    let oldTodo = todos.find(x => x.name === todo.name);
+    let oldTodo = todos.find(x => x.id === todo.id);
     let index = todos.indexOf(oldTodo)
     if (index > -1) {
       todos.splice(index, 1, todo);
