@@ -2,7 +2,7 @@
   <div class="row">
     <form>
       <mat-form-field>
-        <input matInput name="nameSearch" [(ngModel)]="nameSearch" placeholder="Поиск по названию">
+        <input matInput name="nameSearch" [(ngModel)]="nameSearch" placeholder="Поиск по названию или тегу">
       </mat-form-field>
     </form>
     <todo-list *ngFor="let todo of todos | search:nameSearch" [todo]="todo"></todo-list>

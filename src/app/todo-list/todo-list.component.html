@@ -9,15 +9,19 @@
     <p class="title"> Название напоминания: {{todo.name}}</p>
     <p class="title"> Дата: {{todo.date}}</p>
 
-    <mat-form-field>
-      <mat-chip-list mdPrefix>
+    <mat-form-field  floatPlaceholder="always">
+      <mat-chip-list mdPrefix  #chipList>
         <mat-chip *ngFor="let tag of todo.tags; let i = index">
           {{tag}}
           <mat-icon (click)="remove(i)">cancel</mat-icon>
         </mat-chip>
       </mat-chip-list>
-      <input matInput placeholder="Введите название тега..." [(ngModel)]="tagValue" #tag (keydown.enter)="add(tag.value)" (keydown.backspace)="removeByKey(tag.value)"
+      <input matInput placeholder="Введите название тега..."
+      [matChipInputFor]="chipList"
+       [(ngModel)]="tagValue" #tag (keydown.enter)="add(tag.value)" (keydown.backspace)="removeByKey(tag.value)"
       />
+      <mat-hint  align = "start" >Введите название и нажмине Enter</mat-hint> 
     </mat-form-field>
+    
   </div>
 </mat-card>
