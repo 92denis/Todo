@@ -1,19 +1,23 @@
-<mat-card class="todo-item ">
-  <mat-card-header>
+<mat-card class="todo-item" [class.completed]="todo.checked">
+  <div class="icon">
 
-    <mat-card-title> Название напоминания: {{todo.name}}</mat-card-title>
-    <mat-card-subtitle> Дата: {{todo.date}}</mat-card-subtitle>
+    <button mat-icon-button (click)="toggle(todo)">
+      <mat-icon class="material-icons">{{todo.checked ? 'check_box': 'check_box_outline_blank'}}</mat-icon>
+    </button>
+  </div>
+  <div class="content">
+    <p class="title"> Название напоминания: {{todo.name}}</p>
+    <p class="title"> Дата: {{todo.date}}</p>
 
-  </mat-card-header>
-
-  <mat-input-container floatPlaceholder="never">
-    <mat-chip-list matPrefix >
-      <mat-chip *ngFor="let tag of todo.tags; let i = index">
-        {{tag}}
-        <mat-icon (click)="remove(i)">cancel</mat-icon>
-      </mat-chip>
-    </mat-chip-list>
-    <input matInput [matDatepicker]="picker" placeholder="Enter tag" [(ngModel)]="tagValue" #tag (keydown.enter)="add(tag.value)" (keydown.backspace)="removeByKey(chip.value)"
-    />
-  </mat-input-container>
+    <mat-input-container floatPlaceholder="never">
+      <mat-chip-list mdPrefix>
+        <mat-chip *ngFor="let tag of todo.tags; let i = index">
+          {{tag}}
+          <mat-icon (click)="remove(i)">cancel</mat-icon>
+        </mat-chip>
+      </mat-chip-list>
+      <input matInput placeholder="Enter tag" [(ngModel)]="tagValue" #tag (keydown.enter)="add(tag.value)" (keydown.backspace)="removeByKey(chip.value)"
+      />
+    </mat-input-container>
+  </div>
 </mat-card>

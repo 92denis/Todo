@@ -1,8 +1,31 @@
 .todo-item {
     flex: 1;
+    display: flex;
     margin-top: 1rem;
+    flex-direction: row;
+}
+.todo-item.completed .title {
+    text-decoration: line-through;
+}
+
+.todo-item.completed .title,
+.todo-item.completed .material-icons {
+    color: lightgray;
 }
 .mat-form-field{
     width: 90%;
     margin: 5px;
   }
+
+.content{
+    display: flex;
+    flex-direction: column;
+    flex: 4;
+}
+.icon{
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    text-align: center; 
+}
+

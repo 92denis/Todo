@@ -1,8 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit} from '@angular/core';
 import { Todo } from '../todo';
 import { TodoService } from '../todo.service'
-
-const COMMA = 188;
 
 @Component({
   selector: 'todo-list',
@@ -12,16 +10,15 @@ const COMMA = 188;
 export class TodoListComponent implements OnInit {
 
   @Input() todo: Todo;
-
+ 
   constructor(private todoService: TodoService) { }
   tagValue: string;
 
   remove(item) {
     this.todo.tags.splice(item, 1);
   }
-
+ 
   add(value) {
-    // console.log(value);
     this.todo.tags.push(value);
     this.tagValue = "";
   }
@@ -34,7 +31,11 @@ export class TodoListComponent implements OnInit {
       }
     }
   }
-  
+  toggle(todo: Todo) {
+    todo.checked = !todo.checked;
+  }
+
+
   ngOnInit() {
   }
 
