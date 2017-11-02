@@ -26,4 +26,13 @@ export class TodoService {
     todos.push(new Todo(todo.name, todo.date, todo.checked, todo.tags))
     localStorage.setItem('todos', JSON.stringify(todos));
   }
+  updateTodo(todo) {
+    let todos = this.getTodos();
+    let oldTodo = this.todos.find(x => x.name = todo.name);
+    let index = this.todos.indexOf(oldTodo)
+    if (index > -1) {
+      todos.splice(index, 1, todo);
+    }
+    localStorage.setItem('todos', JSON.stringify(todos));
+  }
 }

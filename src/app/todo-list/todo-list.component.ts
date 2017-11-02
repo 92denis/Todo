@@ -31,12 +31,14 @@ export class TodoListComponent implements OnInit {
       }
     }
   }
+
   toggle(todo: Todo) {
     todo.checked = !todo.checked;
+    this.todoService.updateTodo(todo);
   }
-
-
+  
   ngOnInit() {
+   
   }
 
 }
