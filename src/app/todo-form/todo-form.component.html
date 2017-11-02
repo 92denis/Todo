@@ -12,15 +12,15 @@
     <mat-card>
       <form class="form-items" (ngSubmit)="addItem(); todoForm.resetForm()" #todoForm='ngForm'>
         <mat-form-field>
-          <input matInput name="name" [(ngModel)]="newTodo.name" placeholder="Input" #nameTodo="ngModel" placeholder="Введите название напоминания"
+          <input matInput name="name" [(ngModel)]="newTodo.name" #nameTodo="ngModel" placeholder="Введите название напоминания"
             required>
         </mat-form-field>
         <mat-form-field>
           <input matInput type="datetime-local" [min] = "minDate" max="2077-12-30T16:30" value="+03:00" name="date" [(ngModel)]="newTodo.date" #dateTodo="ngModel" placeholder="Выберите дату и время"
-            required>
+            >
         </mat-form-field>
 
-        <button mat-raised-button type="submit" color="primary" [disabled]="nameTodo.invalid || dateTodo.invalid">Добавить</button>
+        <button mat-raised-button type="submit" color="primary" [disabled]="nameTodo.invalid">Добавить</button>
       </form>
     </mat-card>
   </div>

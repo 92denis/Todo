@@ -16,11 +16,13 @@ export class TodoListComponent implements OnInit {
 
   remove(item) {
     this.todo.tags.splice(item, 1);
+    this.todoService.updateTodo(this.todo);
   }
  
   add(value) {
     this.todo.tags.push(value);
     this.tagValue = "";
+    this.todoService.updateTodo(this.todo);
   }
 
   removeByKey(value) {
