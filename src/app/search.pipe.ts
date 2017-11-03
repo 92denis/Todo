@@ -7,8 +7,8 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class SearchPipe implements PipeTransform {
   transform(todos, value) {
     return todos.filter( todo => {
-        return todo.name.toLowerCase().includes((null || value).toLowerCase()) 
-          || todo.tags.some(tag => tag.toLowerCase().includes((null ||value).toLowerCase())); 
+        return todo.name.toLowerCase().includes((value).toLowerCase()) 
+          || todo.tags.some(tag => tag.toLowerCase().includes((value).toLowerCase())); 
     });
   }
 }
