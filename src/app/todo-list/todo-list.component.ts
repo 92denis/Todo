@@ -1,4 +1,4 @@
-import { Component, Input, OnInit} from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { Todo } from '../todo';
 import { TodoService } from '../todo.service'
 
@@ -10,7 +10,8 @@ import { TodoService } from '../todo.service'
 export class TodoListComponent implements OnInit {
 
   @Input() todo: Todo;
- 
+  @Output() getTodos = new EventEmitter();
+
   constructor(private todoService: TodoService) { }
   tagValue: string;
 
@@ -18,29 +19,24 @@ export class TodoListComponent implements OnInit {
     this.todo.tags.splice(item, 1);
     this.todoService.updateTodo(this.todo);
   }
- 
+
   add(value) {
     this.todo.tags.push(value);
     this.tagValue = "";
     this.todoService.updateTodo(this.todo);
   }
 
-  removeByKey(value) {
-    // console.log(event)
-    if (value.length < 1) {
-      if (this.todo.tags.length > 0) {
-        this.todo.tags.pop();
-      }
-    }
+  todos() {
+    this.getTodos.emit();
   }
 
   toggle(todo: Todo) {
     todo.checked = !todo.checked;
     this.todoService.updateTodo(todo);
+    this.todos();
   }
-  
+
   ngOnInit() {
-   
   }
 
 }

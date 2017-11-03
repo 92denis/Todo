@@ -22,6 +22,7 @@ export class TodoFormComponent implements OnInit {
     this.minDate = new Date().getFullYear() + '-' + (new Date().getMonth() + 1) + '-' + new Date().getDate() + 'T' + new Date().getHours() + ':' + new Date().getMinutes();
 
   }
+  
   getTodos(): void {
     this.todos = this.todoService.getTodos();
     this.completedTodos = this.todos.filter(todo => todo.checked === true);

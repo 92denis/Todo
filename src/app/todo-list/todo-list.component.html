@@ -18,8 +18,7 @@
       </mat-chip-list>
       <input matInput placeholder="Введите название тега..."
       [matChipInputFor]="chipList"
-       [(ngModel)]="tagValue" #tag (keydown.enter)="add(tag.value)" (keydown.backspace)="removeByKey(tag.value)"
-      />
+       [(ngModel)]="tagValue" #tag (keydown.enter)="add(tag.value)"/>
       <mat-hint  align = "start" >Введите название и нажмине Enter</mat-hint> 
     </mat-form-field>
     
