@@ -39,8 +39,9 @@
 
   <div class="row">
     <mat-tab-group>
+        <mat-tab label="Текущие"><todo-list *ngFor="let todo of noCompletedTodos | search:nameSearch" [todo]="todo"></todo-list></mat-tab> 
+        <mat-tab label="Выполненные"><todo-list *ngFor="let todo of completedTodos | search:nameSearch" [todo]="todo"></todo-list></mat-tab> 
         <mat-tab label="Все"><todo-list *ngFor="let todo of todos | search:nameSearch" [todo]="todo"></todo-list></mat-tab>
-        <mat-tab label="Выполненные"><todo-list *ngFor="let todo of todos | search:nameSearch" [todo]="todo"></todo-list></mat-tab> 
     </mat-tab-group>
   </div>
 

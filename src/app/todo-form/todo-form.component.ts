@@ -13,6 +13,8 @@ export class TodoFormComponent implements OnInit {
   newTodo: Todo;
   nameSearch: string;
   minDate: any;
+  completedTodos: Todo[];
+  noCompletedTodos: Todo[];
 
   constructor(private todoService: TodoService) {
     this.newTodo = new Todo(null, null, null, false, []);
@@ -22,7 +24,8 @@ export class TodoFormComponent implements OnInit {
   }
   getTodos(): void {
     this.todos = this.todoService.getTodos();
-
+    this.completedTodos = this.todos.filter(todo => todo.checked === true);
+    this.noCompletedTodos = this.todos.filter(todo => todo.checked === false);
   }
 
   addItem() {
