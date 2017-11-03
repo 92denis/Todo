@@ -2,7 +2,7 @@
     flex: 1;
     display: flex;
     margin-top: 1rem;
-    flex-direction: row;
+    
 }
 .todo-item.completed .title {
     text-decoration: line-through;
