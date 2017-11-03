@@ -35,8 +35,13 @@
       </form>
     </mat-expansion-panel>
   </div>
+
+
   <div class="row">
-    <todo-list *ngFor="let todo of todos | search:nameSearch" [todo]="todo"></todo-list>
+    <mat-tab-group>
+        <mat-tab label="Все"><todo-list *ngFor="let todo of todos | search:nameSearch" [todo]="todo"></todo-list></mat-tab>
+        <mat-tab label="Выполненные"><todo-list *ngFor="let todo of todos | search:nameSearch" [todo]="todo"></todo-list></mat-tab> 
+    </mat-tab-group>
   </div>
 
 
