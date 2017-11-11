@@ -1,40 +1,29 @@
 import { Injectable } from '@angular/core';
 import { Todo } from './todo';
 
+import { AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2/database-deprecated';
+import { Observable } from 'rxjs/Observable';
+
 @Injectable()
 export class TodoService {
 
-  constructor() { }
+  todos: FirebaseListObservable<any>;
+  todo: FirebaseObjectObservable<any>;
 
-  private todos: Todo[] = [{
-    id:1,
-    name: "Hello",
-    checked: false,
-    date: new Date(),
-    tags: ['Важное']
-  }];
-
-  getTodos(): Todo[] {
-    let todos = JSON.parse(localStorage.getItem('todos'));
-    if (todos === null || todos === undefined) {
-      todos = this.todos;
-    }
-    return todos;
+  constructor(public af: AngularFireDatabase) {
+    this.todos = this.af.list('/todos') as FirebaseListObservable<Todo[]>;
   }
 
-  addTodo(todo: Todo) {
-    let todos = this.getTodos()
-    todos.push(new Todo(todo.id,todo.name, todo.date, todo.checked, todo.tags))
-    localStorage.setItem('todos', JSON.stringify(todos));
+  getTodos() {
+    return this.todos;
   }
 
-  updateTodo(todo) {
-    let todos = this.getTodos();
-    let oldTodo = todos.find(x => x.id === todo.id);
-    let index = todos.indexOf(oldTodo)
-    if (index > -1) {
-      todos.splice(index, 1, todo);
-    }
-    localStorage.setItem('todos', JSON.stringify(todos));
+  addTodo(todo) {
+    return this.todos.push(todo)
   }
+
+  updateTodo(id, todo) {
+    return this.todos.update(id, todo);
+  }
+
 }

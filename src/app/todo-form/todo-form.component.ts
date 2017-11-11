@@ -22,21 +22,19 @@ export class TodoFormComponent implements OnInit {
     this.minDate = new Date().getFullYear() + '-' + (new Date().getMonth() + 1) + '-' + new Date().getDate() + 'T' + new Date().getHours() + ':' + new Date().getMinutes();
 
   }
-  
-  getTodos(): void {
-    this.todos = this.todoService.getTodos();
-    this.completedTodos = this.todos.filter(todo => todo.checked === true);
-    this.noCompletedTodos = this.todos.filter(todo => todo.checked === false);
-  }
+
 
   addItem() {
     this.newTodo.id = this.todos.length != 0 ? this.todos[this.todos.length - 1].id + 1 : 1;
     this.todoService.addTodo(this.newTodo);
-    this.getTodos();
   }
 
   ngOnInit() {
-    this.getTodos();
+    this.todoService.getTodos().subscribe(todos => {
+      this.todos = todos;
+      this.completedTodos = this.todos.filter(todo => todo.checked === true);
+      this.noCompletedTodos = this.todos.filter(todo => todo.checked === false);
+    })
   }
 
 }

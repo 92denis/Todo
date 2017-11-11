@@ -15,25 +15,20 @@ export class TodoListComponent implements OnInit {
   constructor(private todoService: TodoService) { }
   tagValue: string;
 
-  remove(item) {
+  remove(item, todo) {
     this.todo.tags.splice(item, 1);
-    this.todoService.updateTodo(this.todo);
+    this.todoService.updateTodo(todo.$key,todo);
   }
 
-  add(value) {
+  add(value, todo) {
     this.todo.tags.push(value);
     this.tagValue = "";
-    this.todoService.updateTodo(this.todo);
+    this.todoService.updateTodo(todo.$key, todo);
   }
 
-  todos() {
-    this.getTodos.emit();
-  }
-
-  toggle(todo: Todo) {
+  toggle(todo) {
     todo.checked = !todo.checked;
-    this.todoService.updateTodo(todo);
-    this.todos();
+    this.todoService.updateTodo(todo.$key, todo);
   }
 
   ngOnInit() {
