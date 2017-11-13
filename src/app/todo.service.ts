@@ -22,8 +22,8 @@ export class TodoService {
     return this.todos.push(todo)
   }
 
-  updateTodo(id, todo) {
-    return this.todos.update(id, todo);
+  updateTodo(todo: Todo) {
+    return this.todos.update(todo.$key, todo);
   }
 
 }
