@@ -26,4 +26,8 @@ export class TodoService {
     return this.todos.update(todo.$key, todo);
   }
 
+  deleteTodo(id: string){
+    return this.todos.remove(id);
+  }
+
 }

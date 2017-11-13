@@ -10,7 +10,7 @@ import { TodoService } from '../todo.service'
 export class TodoListComponent implements OnInit {
 
   @Input() todo: Todo;
-  
+
   constructor(private todoService: TodoService) { }
   tagValue: string;
 
@@ -20,7 +20,7 @@ export class TodoListComponent implements OnInit {
   }
 
   add(value) {
-    if (!this.todo.tags){ this.todo.tags = []}
+    if (!this.todo.tags) { this.todo.tags = [] }
     this.todo.tags.push(value);
     this.tagValue = "";
     this.todoService.updateTodo(this.todo);
@@ -29,6 +29,10 @@ export class TodoListComponent implements OnInit {
   toggle(todo) {
     todo.checked = !todo.checked;
     this.todoService.updateTodo(todo);
+  }
+
+  delete(id) {
+    this.todoService.deleteTodo(id);
   }
 
   ngOnInit() {
