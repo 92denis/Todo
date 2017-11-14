@@ -11,7 +11,7 @@ import { MatTabsModule, MatExpansionModule, MatIconModule, MatChipsModule, MatDa
 import { TodoService } from './todo.service';
 import { SearchPipe } from './search.pipe';
 
-import { AngularFireModule   } from 'angularfire2';
+import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabase } from 'angularfire2/database-deprecated';
 
 export const сonfig  = {

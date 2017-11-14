@@ -21,11 +21,12 @@
     display: flex;
     flex-direction: column;
     flex: 4;
+    margin: 5px;
 }
-.icon{
+.text-info{
     display: flex;
     flex: 1;
-    justify-content: center;
-    text-align: center; 
+   flex-direction: row; 
+   justify-content: space-between;
 }
 

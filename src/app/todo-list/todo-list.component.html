@@ -1,27 +1,27 @@
 <mat-card class="todo-item" [class.completed]="todo.checked">
-  <div class="icon">
+  <div>
 
     <button mat-icon-button (click)="toggle(todo)">
       <mat-icon>{{todo.checked ? 'check_box': 'check_box_outline_blank'}}</mat-icon>
     </button>
   </div>
   <div class="content">
-    <p class="title"> Название напоминания: {{todo.name}}</p>
-    <p class="title"> Дата: {{todo.date}}</p>
-
-    <mat-form-field  floatPlaceholder="always">
-      <mat-chip-list mdPrefix  #chipList>
+    <div class="text-info">
+      <span class="title"> Название напоминания: {{todo.name}}</span>
+      <span class="title"> {{todo.date}}</span>
+    </div>
+    <mat-form-field floatPlaceholder="always">
+      <mat-chip-list mdPrefix #chipList>
         <mat-chip *ngFor="let tag of todo.tags; let i = index">
           {{tag}}
           <mat-icon (click)="remove(i)">cancel</mat-icon>
         </mat-chip>
       </mat-chip-list>
-      <input matInput placeholder="Введите название тега..."
-      [matChipInputFor]="chipList"
-       [(ngModel)]="tagValue" #tag (keydown.enter)="add(tag.value)"/>
-      <mat-hint  align = "start" >Введите название и нажмине Enter</mat-hint> 
+      <input matInput placeholder="Введите название тега..." [matChipInputFor]="chipList" [(ngModel)]="tagValue" #tag (keydown.enter)="add(tag.value)"
+      />
+      <mat-hint align="start">Введите название и нажмине Enter</mat-hint>
     </mat-form-field>
-    
+
   </div>
   <button mat-icon-button (click)="delete(todo.$key)">
     <mat-icon>delete</mat-icon>
