@@ -8,3 +8,21 @@
     flex: 1;
     /* width: 90%; */
 }
+.spacer {
+    flex: 1 1 auto;
+  }
+
+.signup{
+    width: 400px;
+    margin: 40px auto;
+    display: flex;
+    flex-direction: column;
+} 
+.mat-form-field{
+    width: 90%;
+    margin: 5px;
+  }
+  
+button{
+  margin: 5px;
+}

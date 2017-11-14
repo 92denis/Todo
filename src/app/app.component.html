@@ -1,8 +1,27 @@
-<mat-toolbar color = "primary">
+<mat-toolbar color="primary">
     <span>Todo Apllication</span>
+    <span class="spacer"></span>
+    <button mat-button (click)="logout()" *ngIf="todoService.user | async">
+        Выйти
+    </button>
 </mat-toolbar>
-<div class="container">
+<!-- <h1 *ngIf="todoService.user | async">Welcome {{ (todoService.user | async)?.email }}!</h1> -->
+
+
+<mat-card class="signup" *ngIf="!(todoService.user | async)">
+    <mat-form-field>
+        <input matInput #emailTodo="ngModel" name="email" [(ngModel)]="email" placeholder="Введите email" required>
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput type="password" [(ngModel)]="password" placeholder="Введите пароль" [type]="hide ? 'password' : 'text'" pattern="[A-Za-zА-Яа-яЁё, 0-9]{8,18} " title="Пароль должен содержать от 8 до 18 символов">
+        <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off': 'visibility' }}</mat-icon>
+    </mat-form-field>
+
+    <button mat-raised-button (click)="signup()" [disabled]="!email || !password" type="submit" color="primary">Зарегистрироваться</button>
+    <button mat-raised-button (click)="login()" [disabled]="!email || !password" type="submit" color="primary">Воити</button>
+</mat-card>
+<div *ngIf="todoService.user | async" class="container">
     <div class="row">
         <todo-form></todo-form>
     </div>
-  </div>
+</div>

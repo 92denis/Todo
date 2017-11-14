@@ -13,6 +13,7 @@ import { SearchPipe } from './search.pipe';
 
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabase } from 'angularfire2/database-deprecated';
+import { AngularFireAuthModule } from 'angularfire2/auth';
 
 export const сonfig  = {
   apiKey: "AIzaSyCSF9bF9hKFQuMi2b3fNHBFYsS5Qa3EbQc",
@@ -35,6 +36,7 @@ export const сonfig  = {
     FormsModule,
     BrowserAnimationsModule,
     AngularFireModule.initializeApp(сonfig),
+    AngularFireAuthModule,
     MatInputModule,
     MatFormFieldModule,
     MatNativeDateModule,
