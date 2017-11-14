@@ -37,32 +37,21 @@
 
   <div class="row">
     <mat-tab-group>
-      <mat-tab *ngIf="noCompletedTodos!=0" label="Текущие">
+      <mat-tab label="Текущие">
         <mat-card>
           <todo-list *ngFor="let todo of noCompletedTodos | search:nameSearch" [todo]="todo"> </todo-list>
         </mat-card>
       </mat-tab>
-      <mat-tab *ngIf="noCompletedTodos == 0" label="Текущие">
-        <span>Cписок пуст</span>
-      </mat-tab>
-      <mat-tab *ngIf="completedTodos != 0" label="Выполненные">
+      <mat-tab label="Выполненные">
         <mat-card>
           <todo-list *ngFor="let todo of completedTodos | search:nameSearch" [todo]="todo"></todo-list>
         </mat-card>
       </mat-tab>
-      <mat-tab *ngIf="completedTodos == 0" label="Выполненные">
-        <span>Cписок пуст</span>
-      </mat-tab>
-
-      <mat-tab *ngIf="todos != 0" label="Все">
+      <mat-tab label="Все">
         <mat-card>
           <todo-list *ngFor="let todo of todos | search:nameSearch" [todo]="todo"></todo-list>
         </mat-card>
       </mat-tab>
-      <mat-tab *ngIf="todos == 0" label="Все">
-        <span>Cписок пуст</span>
-      </mat-tab>
-
     </mat-tab-group>
   </div>
 </div>
