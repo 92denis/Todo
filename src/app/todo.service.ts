@@ -9,21 +9,26 @@ import { Observable } from 'rxjs/Observable';
 
 @Injectable()
 export class TodoService {
+
   user: Observable<firebase.User>;
   todos: FirebaseListObservable<any>;
   todo: FirebaseObjectObservable<any>;
 
   constructor(public af: AngularFireDatabase, private firebaseAuth: AngularFireAuth) {
-    this.todos = this.af.list('/todos') as FirebaseListObservable<Todo[]>;
     this.user = firebaseAuth.authState;
+    this.firebaseAuth.auth.onAuthStateChanged(user => {
+      if (user) {
+        this.todos = this.af.list(`/users/${user.uid}`) as FirebaseListObservable<Todo[]>;
+      }
+    });
   }
 
   getTodos() {
     return this.todos;
   }
 
-  addTodo(todo) {
-    return this.todos.push(todo)
+  addTodo(todo: Todo) {
+    return this.todos.push(todo);
   }
 
   updateTodo(todo: Todo) {
@@ -35,15 +40,18 @@ export class TodoService {
   }
 
   signup(email: string, password: string) {
-    this.firebaseAuth
+    return this.firebaseAuth
       .auth
-      .createUserWithEmailAndPassword(email, password);
+      .createUserWithEmailAndPassword(email, password).then((user) => {
+      }).catch(error => alert(error));
   }
 
   login(email: string, password: string) {
-    this.firebaseAuth
+    return this.firebaseAuth
       .auth
-      .signInWithEmailAndPassword(email, password);
+      .signInWithEmailAndPassword(email, password).then((user) => {
+
+      }).catch(error => alert(error));
   }
 
   logout() {
@@ -51,5 +59,4 @@ export class TodoService {
       .auth
       .signOut();
   }
-
 }
