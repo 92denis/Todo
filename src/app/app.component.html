@@ -7,13 +7,15 @@
 </mat-toolbar>
 
 <mat-card class="signup" *ngIf="!(todoService.user | async)">
-    <img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/PjxzdmcgaWQ9IkxheWVyXzEiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDEyOCAxMjg7IiB2ZXJzaW9uPSIxLjEiIHZpZXdCb3g9IjAgMCAxMjggMTI4IiB4bWw6c3BhY2U9InByZXNlcnZlIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIj48c3R5bGUgdHlwZT0idGV4dC9jc3MiPgoJLnN0MHtmaWxsOiMyNjdDQjU7fQoJLnN0MXtmaWxsOiNGRkZGRkY7fQo8L3N0eWxlPjxnPjxjaXJjbGUgY2xhc3M9InN0MCIgY3g9IjY0IiBjeT0iNjQiIHI9IjY0Ii8+PC9nPjxwYXRoIGNsYXNzPSJzdDEiIGQ9Ik04NSw1MGgtNXYtOGMwLTguOC03LjItMTYtMTYtMTZzLTE2LDcuMi0xNiwxNnY4aC01Yy0yLjIsMC00LDEuOC00LDR2NDJjMCwyLjIsMS44LDQsNCw0aDQyYzIuMiwwLDQtMS44LDQtNCAgVjU0Qzg5LDUxLjgsODcuMiw1MCw4NSw1MHogTTcwLDg0LjVINThsMy4yLTguMmMtMS45LTEtMy4yLTMtMy4yLTUuM2MwLTMuMywyLjctNiw2LTZjMy4zLDAsNiwyLjcsNiw2YzAsMi4zLTEuMyw0LjMtMy4yLDUuMyAgTDcwLDg0LjV6IE03Niw1MEg1MnYtOGMwLTYuNiw1LjQtMTIsMTItMTJzMTIsNS40LDEyLDEyVjUweiIvPjwvc3ZnPg==" alt="">
+    <img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/PjxzdmcgaWQ9IkxheWVyXzEiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDEyOCAxMjg7IiB2ZXJzaW9uPSIxLjEiIHZpZXdCb3g9IjAgMCAxMjggMTI4IiB4bWw6c3BhY2U9InByZXNlcnZlIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIj48c3R5bGUgdHlwZT0idGV4dC9jc3MiPgoJLnN0MHtmaWxsOiMyNjdDQjU7fQoJLnN0MXtmaWxsOiNGRkZGRkY7fQo8L3N0eWxlPjxnPjxjaXJjbGUgY2xhc3M9InN0MCIgY3g9IjY0IiBjeT0iNjQiIHI9IjY0Ii8+PC9nPjxwYXRoIGNsYXNzPSJzdDEiIGQ9Ik04NSw1MGgtNXYtOGMwLTguOC03LjItMTYtMTYtMTZzLTE2LDcuMi0xNiwxNnY4aC01Yy0yLjIsMC00LDEuOC00LDR2NDJjMCwyLjIsMS44LDQsNCw0aDQyYzIuMiwwLDQtMS44LDQtNCAgVjU0Qzg5LDUxLjgsODcuMiw1MCw4NSw1MHogTTcwLDg0LjVINThsMy4yLTguMmMtMS45LTEtMy4yLTMtMy4yLTUuM2MwLTMuMywyLjctNiw2LTZjMy4zLDAsNiwyLjcsNiw2YzAsMi4zLTEuMyw0LjMtMy4yLDUuMyAgTDcwLDg0LjV6IE03Niw1MEg1MnYtOGMwLTYuNiw1LjQtMTIsMTItMTJzMTIsNS40LDEyLDEyVjUweiIvPjwvc3ZnPg=="
+        alt="">
     <mat-form-field>
-        <input matInput #emailTodo="ngModel" name="email" [(ngModel)]="email" placeholder="Введите email" required>
+        <input matInput #emailTodo="ngModel" name="emailTodo" [(ngModel)]="email" placeholder="Введите email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$">
     </mat-form-field>
     <mat-form-field>
-        <input matInput type="password" [(ngModel)]="password" placeholder="Введите пароль" [type]="hide ? 'password' : 'text'" pattern="[A-Za-zА-Яа-яЁё, 0-9]{8,18} " title="Пароль должен содержать от 8 до 18 символов">
-        <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off': 'visibility' }}</mat-icon>
+        <input matInput type="password" #passTodo="ngModel" name="passTodo" [(ngModel)]="password" placeholder="Введите пароль" [type]="!hide ? 'password' : 'text'"
+            required title="Пароль должен содержать от 8 символов">
+        <mat-icon matSuffix (click)="hide = !hide">{{!hide ? 'visibility_off': 'visibility' }}</mat-icon>
     </mat-form-field>
 
     <button mat-raised-button (click)="signup()" [disabled]="!email || !password" type="submit" color="primary">Зарегистрироваться</button>

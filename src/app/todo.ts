@@ -4,7 +4,7 @@ export class Todo {
     public date: Date;
     public checked: boolean;
     public tags: any[];
-
+        
     constructor() {
         this.checked = false;
         this.tags = [ ];
