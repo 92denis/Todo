@@ -16,12 +16,12 @@ import { AngularFireDatabase } from 'angularfire2/database-deprecated';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 
 export const сonfig  = {
-  apiKey: "AIzaSyCSF9bF9hKFQuMi2b3fNHBFYsS5Qa3EbQc",
-  authDomain: "todo-1c9a5.firebaseapp.com",
-  databaseURL: "https://todo-1c9a5.firebaseio.com",
-  projectId: "todo-1c9a5",
-  storageBucket: "todo-1c9a5.appspot.com",
-  messagingSenderId: "642484543969"
+  apiKey: "AIzaSyCha-WkwmwpU_UiZVO1EP9sIjxKsa-RtJA",
+  authDomain: "todos-5e346.firebaseapp.com",
+  databaseURL: "https://todos-5e346.firebaseio.com",
+  projectId: "todos-5e346",
+  storageBucket: "todos-5e346.appspot.com",
+  messagingSenderId: "514644533260"
 };
 
 @NgModule({
