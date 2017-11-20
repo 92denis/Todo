@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Todo } from '../todo';
-import { TodoService } from '../todo.service';
+import { TodoService } from '../todo.service'
 import { NgForm } from '@angular/forms';
 
 @Component({
@@ -18,9 +18,8 @@ export class TodoFormComponent implements OnInit {
 
   constructor(private todoService: TodoService) {
     this.newTodo = new Todo();
-    this.nameSearch = ''
-    this.minDate = new Date().getFullYear() + '-' + (new Date().getMonth() + 1) +
-     '-' + new Date().getDate() + 'T' + new Date().getHours() + ':' + new Date().getMinutes();
+    this.nameSearch = "";
+    this.minDate = new Date().getFullYear() + '-' + (new Date().getMonth() + 1) + '-' + new Date().getDate() + 'T' + new Date().getHours() + ':' + new Date().getMinutes();
   }
 
   addItem() {
