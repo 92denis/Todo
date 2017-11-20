@@ -7,7 +7,19 @@ import { TodoFormComponent } from './todo-form/todo-form.component';
 import { TodoListComponent } from './todo-list/todo-list.component';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatTabsModule, MatExpansionModule, MatIconModule, MatChipsModule, MatDatepickerModule, MatInputModule, MatFormFieldModule, MatNativeDateModule, MatToolbarModule, MatButtonModule, MatCardModule } from '@angular/material';
+import {
+  MatTabsModule,
+  MatExpansionModule,
+  MatIconModule,
+  MatChipsModule,
+  MatDatepickerModule,
+  MatInputModule,
+  MatFormFieldModule,
+  MatNativeDateModule,
+  MatToolbarModule,
+  MatButtonModule,
+  MatCardModule
+} from '@angular/material';
 import { TodoService } from './todo.service';
 import { SearchPipe } from './search.pipe';
 
@@ -15,13 +27,13 @@ import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabase } from 'angularfire2/database-deprecated';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 
-export const сonfig  = {
-  apiKey: "AIzaSyCha-WkwmwpU_UiZVO1EP9sIjxKsa-RtJA",
-  authDomain: "todos-5e346.firebaseapp.com",
-  databaseURL: "https://todos-5e346.firebaseio.com",
-  projectId: "todos-5e346",
-  storageBucket: "todos-5e346.appspot.com",
-  messagingSenderId: "514644533260"
+export const сonfig = {
+  apiKey: 'AIzaSyCha-WkwmwpU_UiZVO1EP9sIjxKsa-RtJA',
+  authDomain: 'todos-5e346.firebaseapp.com',
+  databaseURL: 'https://todos-5e346.firebaseio.com',
+  projectId: 'todos-5e346',
+  storageBucket: 'todos-5e346.appspot.com',
+  messagingSenderId: '514644533260'
 };
 
 @NgModule({
@@ -49,7 +61,7 @@ export const сonfig  = {
     MatExpansionModule,
     MatTabsModule
   ],
-  providers: [AngularFireDatabase,TodoService],
+  providers: [AngularFireDatabase, TodoService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -6,7 +6,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class SearchPipe implements PipeTransform {
   transform(todos, value) {
-    if (value === "") {
+    if (value === '') {
       return todos;
     } else {
       return todos.filter(todo => {

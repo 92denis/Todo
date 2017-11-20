@@ -20,7 +20,7 @@ export class TodoListComponent implements OnInit {
   }
 
   add(value) {
-    if (!this.todo.tags) { this.todo.tags = [] }
+    if (!this.todo.tags) { this.todo.tags = []; }
     this.todo.tags.push(value);
     this.tagValue = "";
     this.todoService.updateTodo(this.todo);
